@@ -9,7 +9,7 @@ let app=express()
 mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce").then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
 app.use(cors(
   app.use({
-origin:"ecommerce-project-tau-ashen.vercel.app",
+origin:"",
 credentials: true
 })
 ))
