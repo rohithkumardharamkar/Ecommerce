@@ -11,7 +11,7 @@ let navigate=useNavigate()
 let obj=useContext(Ct)
   useEffect(()=>
 {
-  axios.get("http://localhost:5000/products/getprod").then((res)=>
+  axios.get("https://ecommerce-project-tau-ashen.vercel.app/products/getprod").then((res)=>
 {
   setProd(res.data)
 })
