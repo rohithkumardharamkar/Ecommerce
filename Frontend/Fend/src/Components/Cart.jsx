@@ -13,7 +13,7 @@ const Cart = () => {
         console.log("kkkkkkkk");
         console.log(obj.cont.token);
     
-        axios.get(`http://localhost:5000/cart/getcart/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then((res)=>
+        axios.get(`https://ecommerce-project-tau-ashen.vercel.app/cart/getcart/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then((res)=>
         {
             setCart(res.data)
           
