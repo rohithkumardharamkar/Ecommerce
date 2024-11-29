@@ -21,8 +21,7 @@ const AddProd = () => {
     {
       fd.append(el,data[el])
     }
-
-    axios.post("http://localhost:5000/products/addprod",fd).then((res)=>
+    axios.post("https://ecommerce-project-tau-ashen.vercel.app/products/addprod",fd).then((res)=>
   {
     navigate("/")
   })
