@@ -22,7 +22,7 @@ const AddProd = () => {
       fd.append(el,data[el])
     }
 
-    axios.post("http://localhost:5000/products/addprod",fd).then((res)=>
+    axios.post("https://ecommerce-yrgm.vercel.app/products/addprod",fd).then((res)=>
   {
     navigate("/")
   })
