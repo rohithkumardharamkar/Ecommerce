@@ -13,7 +13,7 @@ const Cart = () => {
         console.log("kkkkkkkk");
         console.log(obj.cont.token);
     
-        axios.get(`http://localhost:5000/cart/getcart/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then((res)=>
+        axios.get(`https://ecommerce-yrgm.vercel.app/cart/getcart/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then((res)=>
         {
             setCart(res.data)
           
@@ -38,14 +38,14 @@ const Cart = () => {
  
     let inc=(_id)=>{
         console.log(_id);
-        axios.put("http://localhost:5000/cart/inc",{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
+        axios.put("https://ecommerce-yrgm.vercel.app/cart/inc",{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
             console.log(res);
           fetch()
         })
       }
       let dec=(_id)=>{
         console.log(_id);
-        axios.put("http://localhost:5000/cart/dec",{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
+        axios.put("https://ecommerce-yrgm.vercel.app/cart/dec",{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
             console.log(res);
           fetch()
         })
@@ -54,7 +54,7 @@ const Cart = () => {
   
 let clear=()=>
 {
-    axios.delete(`http://localhost:5000/cart/clear/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
+    axios.delete(`https://ecommerce-yrgm.vercel.app/cart/clear/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
 {
     fetch()
 })
@@ -62,7 +62,7 @@ let clear=()=>
 let del=(_id)=>
 {
     console.log(_id);
-    axios.delete(`http://localhost:5000/cart/delete/${_id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
+    axios.delete(`https://ecommerce-yrgm.vercel.app/cart/delete/${_id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
 {
     fetch()
 })
@@ -77,7 +77,7 @@ let del=(_id)=>
                 cart.map((item)=>
             {
                 return(<div className='product'>
-                <div><img src={`http://localhost:5000/images/${item.productimg}`}alt="Product Image" /></div>
+                <div><img src={`https://ecommerce-yrgm.vercel.app//images/${item.productimg}`}alt="Product Image" /></div>
         <h3>{item.name}</h3>
         <p>Category :{item.category}</p>
         <p>Price :{item.price}</p>
