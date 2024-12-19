@@ -11,7 +11,7 @@ let navigate=useNavigate()
 let obj=useContext(Ct)
   useEffect(()=>
 {
-  axios.get("http://localhost:5000/products/getprod").then((res)=>
+  axios.get("https://ecommerce-yrgm.vercel.app/products/getprod").then((res)=>
 {
   setProd(res.data)
 })
@@ -29,7 +29,7 @@ function add(item)
   else
   {
 
-    axios.post("http://localhost:5000/cart/addcart",{...item,"qty":1,"uid":obj.cont._id},{"headers":{"Authorization":obj.cont.token}}).then(()=>
+    axios.post("https://ecommerce-yrgm.vercel.app/cart/addcart",{...item,"qty":1,"uid":obj.cont._id},{"headers":{"Authorization":obj.cont.token}}).then(()=>
   {
     navigate("/cart")
   }).catch((err)=>
@@ -50,7 +50,7 @@ console.log(prod);
       console.log(item.productimg);
       return(<div className='product'>
        
-        <div><img src={`http://localhost:5000/images/${item.productimg}`}alt="Product Image" /></div>
+        <div><img src={`https://ecommerce-yrgm.vercel.app/images/${item.productimg}`}alt="Product Image" /></div>
         <h3>{item.name}</h3>
         <p>Category :{item.category}</p>
         <p>Price :{item.price}</p>
