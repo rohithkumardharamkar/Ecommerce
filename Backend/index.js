@@ -11,6 +11,9 @@ app.use(cors())
 let port=process.env.PORT || 5000
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.get("/",(req,res)=>{
+  res.json("hi");
+}
 app.use("/cart",cartRouter)
 app.use("/products",proute)
 app.use("/user",userRoute)
