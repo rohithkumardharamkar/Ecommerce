@@ -24,7 +24,7 @@ const Login = () => {
         }
        console.log(data);
     console.log(err);
-        axios.post("http://localhost:5000/user/login",data).then((res)=> {   
+        axios.post("https://ecommerce-yrgm.vercel.app/user/login",data).then((res)=> {   
             if(res.data.token)
             {
                 obj.updcont(res.data)
