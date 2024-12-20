@@ -37,7 +37,7 @@ let login=async(req,res)=>
 
             if(a)
             {
-                res.json({"token":jwt.sign({"_id":obj._id},process.env.s_=_k),"_id":obj._id,"name":obj.name,"role":obj.role,"mobile":obj.mobile,"gender":obj.gender,"age":obj.age})
+                res.json({"token":jwt.sign({"_id":obj._id},process.env.s_k),"_id":obj._id,"name":obj.name,"role":obj.role,"mobile":obj.mobile,"gender":obj.gender,"age":obj.age})
 
             }
             else
