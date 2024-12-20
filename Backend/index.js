@@ -1,27 +1,43 @@
-let express=require("express")
-let cors=require("cors")
-let mongoose=require("mongoose");
-var bodyParser = require('body-parser');
+let express = require("express");
+let cors = require("cors");
+let mongoose = require("mongoose");
+var bodyParser = require("body-parser");
+require("dotenv").config();
 const cartRouter = require("./route/cart.route");
 const proute = require("./route/product.route");
 const userRoute = require("./route/user.route");
-let app=express()
-mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce").then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
-app.use(cors(
-    {
-        origin: ["https://ecommerce-gws5.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
-let port=3001;
-app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-app.get("/",(req,res)=>{
+let app = express();
+let port = process.env.PORT || 3001;
+
+mongoose.connect("mongodb+srv://rohithkumardharamkar:Chintu@431431@cluster0.ji041.mongodb.net/Ecommerce?retryWrites=true&w=majority&appName=Cluster0").then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
+
+app.use(
+  cors({
+    origin: "https://ecommerce-gws5.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
   res.json("hi");
-}
-app.use("/cart",cartRouter)
-app.use("/products",proute)
-app.use("/user",userRoute)
-app.use("/images",express.static("./images"))
-app.listen(port)
+});
+
+app.use("/cart", cartRouter);
+app.use("/products", proute);
+app.use("/user", userRoute);
+
+app.use("/images", express.static("./images"));
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ message: "Internal Server Error" });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
