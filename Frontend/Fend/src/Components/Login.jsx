@@ -3,6 +3,7 @@ import {useNavigate }from 'react-router-dom'
 import './Nav.css'
 import axios from 'axios'
 import Ct from './Ct'
+import { url } from '../../url'
 
 const Login = () => {
     let [data,setData]=useState({"_id":"","pwd":""})
@@ -28,7 +29,7 @@ const Login = () => {
     https://ecommerce-yrgm.vercel.app/
 =======
 >>>>>>> 6b1d35bb2e9ad07929bedf85d0c3c7cc92d49e30
-        axios.post("https://ecommerce-yrgm.vercel.app/user/login",data).then((res)=> {   
+        axios.post(`${url}/user/login`,data).then((res)=> {   
             if(res.data.token)
             {
                 obj.updcont(res.data)

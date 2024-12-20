@@ -2,6 +2,7 @@ import axios  from 'axios'
 import React, { useState } from 'react'
 
 import {useNavigate }from 'react-router-dom'
+import { url } from '../../url'
 const Reg = () => {
   let [data,setData]=useState({
     "_id":"",
@@ -22,7 +23,7 @@ const Reg = () => {
     {
     try
     {
-      axios.post("https://ecommerce-yrgm.vercel.app/user/register",data).then((res)=>
+      axios.post(`${url}/user/register`,data).then((res)=>
       {
         if(res.data.msg=="Your Account has been created")
         {

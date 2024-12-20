@@ -2,6 +2,7 @@ import  axios from 'axios'
 import React, { useState } from 'react'
 import './Nav.css'
 import {useNavigate} from 'react-router-dom'
+import { url } from '../../url'
 const AddProd = () => {
   let [data,setData]=useState({})
   let navigate=useNavigate()
@@ -22,7 +23,7 @@ const AddProd = () => {
       fd.append(el,data[el])
     }
 
-    axios.post("https://ecommerce-yrgm.vercel.app/products/addprod",fd).then((res)=>
+    axios.post(`${url}/products/addprod`,fd).then((res)=>
   {
     navigate("/")
   })

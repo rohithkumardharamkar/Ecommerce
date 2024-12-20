@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import Ct from './Ct'
 import { useNavigate } from 'react-router-dom'
+import { url } from '../../url'
 
 
 const Cart = () => {
@@ -13,7 +14,7 @@ const Cart = () => {
         console.log("kkkkkkkk");
         console.log(obj.cont.token);
     
-        axios.get(`https://ecommerce-yrgm.vercel.app/cart/getcart/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then((res)=>
+        axios.get(`${url}/cart/getcart/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then((res)=>
         {
             setCart(res.data)
           
@@ -38,21 +39,21 @@ const Cart = () => {
  
     let inc=(_id)=>{
         console.log(_id);
-        axios.put("https://ecommerce-yrgm.vercel.app/cart/inc",{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
+        axios.put(`${url}/cart/inc`,{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
             console.log(res);
           fetch()
         })
       }
       let dec=(_id)=>{
         console.log(_id);
-        axios.put("https://ecommerce-yrgm.vercel.app/cart/dec",{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
+        axios.put(`${url}/cart/dec`,{"_id":_id},{"headers":{"Authorization":obj.cont.token}}).then((res)=>{
             console.log(res);
           fetch()
         })
       }
 let clear=()=>
 {
-    axios.delete(`https://ecommerce-yrgm.vercel.app/cart/clear/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
+    axios.delete(`${url}/cart/clear/${obj.cont._id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
 {
     fetch()
 })
@@ -60,7 +61,7 @@ let clear=()=>
 let del=(_id)=>
 {
     console.log(_id);
-    axios.delete(`https://ecommerce-yrgm.vercel.app/cart/delete/${_id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
+    axios.delete(`${url}/cart/delete/${_id}`,{"headers":{"Authorization":obj.cont.token}}).then(()=>
 {
     fetch()
 })
@@ -76,9 +77,9 @@ let del=(_id)=>
             {
                 return(<div className='product'>
 <<<<<<< HEAD
-                <div><img src={`https://ecommerce-yrgm.vercel.app/images/${item.productimg}`}alt="Product Image" /></div>
+                <div><img src={`${url}/images/${item.productimg}`}alt="Product Image" /></div>
 =======
-                <div><img src={`https://ecommerce-yrgm.vercel.app//images/${item.productimg}`}alt="Product Image" /></div>
+                <div><img src={`${url}/images/${item.productimg}`}alt="Product Image" /></div>
 >>>>>>> 6b1d35bb2e9ad07929bedf85d0c3c7cc92d49e30
         <h3>{item.name}</h3>
         <p>Category :{item.category}</p>
