@@ -24,10 +24,7 @@ const Login = () => {
         }
        console.log(data);
     console.log(err);
-<<<<<<< HEAD
     https://ecommerce-yrgm.vercel.app/
-=======
->>>>>>> 6b1d35bb2e9ad07929bedf85d0c3c7cc92d49e30
         axios.post("https://ecommerce-yrgm.vercel.app/user/login",data).then((res)=> {   
             if(res.data.token)
             {

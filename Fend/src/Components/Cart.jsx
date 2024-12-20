@@ -75,11 +75,7 @@ let del=(_id)=>
                 cart.map((item)=>
             {
                 return(<div className='product'>
-<<<<<<< HEAD
                 <div><img src={`https://ecommerce-yrgm.vercel.app/images/${item.productimg}`}alt="Product Image" /></div>
-=======
-                <div><img src={`https://ecommerce-yrgm.vercel.app//images/${item.productimg}`}alt="Product Image" /></div>
->>>>>>> 6b1d35bb2e9ad07929bedf85d0c3c7cc92d49e30
         <h3>{item.name}</h3>
         <p>Category :{item.category}</p>
         <p>Price :{item.price}</p>
