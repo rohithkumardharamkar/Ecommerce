@@ -7,8 +7,10 @@ const cartRouter = require("./route/cart.route");
 const proute = require("./route/product.route");
 const userRoute = require("./route/user.route");
 let app=express()
+require('dotenv').config()
+
 // mongodb://127.0.0.1:27017/Ecommerce
-mongoose.connect("mongodb+srv://rohithkumardharamkar:Chintu@431431@cluster0.ji041.mongodb.net/Ecommerce?retryWrites=true&w=majority&appName=Cluster0").then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
+mongoose.connect(process.env.mongo_url).then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
 app.use(cors());
 let port=process.env.PORT || 5000
 app.use(express.json())

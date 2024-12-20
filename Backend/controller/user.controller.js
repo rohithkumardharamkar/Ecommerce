@@ -1,8 +1,9 @@
 const usermodel = require("../model/user.model")
-let bcrypt=require("bcrypt")
+let bcrypt=require("bcrypt");
+require('dotenv').config()
+
 let jwt=require("jsonwebtoken")
-let fs=require("fs")
-const { log } = require("console")
+
 let regis=async(req,res)=>
 {
     try {
@@ -36,7 +37,7 @@ let login=async(req,res)=>
 
             if(a)
             {
-                res.json({"token":jwt.sign({"_id":obj._id},"rohith"),"_id":obj._id,"name":obj.name,"role":obj.role,"mobile":obj.mobile,"gender":obj.gender,"age":obj.age})
+                res.json({"token":jwt.sign({"_id":obj._id},process.env.s_=_k),"_id":obj._id,"name":obj.name,"role":obj.role,"mobile":obj.mobile,"gender":obj.gender,"age":obj.age})
 
             }
             else
