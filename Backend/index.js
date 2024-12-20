@@ -7,8 +7,14 @@ const proute = require("./route/product.route");
 const userRoute = require("./route/user.route");
 let app=express()
 mongoose.connect("mongodb://127.0.0.1:27017/Ecommerce").then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
-app.use(cors())
-let port=process.env.PORT || 5000
+app.use(cors(
+    {
+        origin: ["https://ecommerce-gws5.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+let port=3001;
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.get("/",(req,res)=>{
