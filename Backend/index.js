@@ -7,7 +7,8 @@ const cartRouter = require("./route/cart.route");
 const proute = require("./route/product.route");
 const userRoute = require("./route/user.route");
 let app = express();
-let port = process.env.PORT || 3001;
+let port = process.env.PORT || 3002;  
+
 
 mongoose.connect("mongodb+srv://rohithkumardharamkar:Chintu@431431@cluster0.ji041.mongodb.net/Ecommerce?retryWrites=true&w=majority&appName=Cluster0").then((res)=>{console.log("database connected");}).catch((err)=>{console.log(err);})
 
