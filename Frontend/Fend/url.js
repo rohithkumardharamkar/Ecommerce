@@ -1,1 +1,1 @@
-export let url="https://ecommerce-m441.onrender.com/"
+export let url="https://ecommerce-npo3.onrender.com"
