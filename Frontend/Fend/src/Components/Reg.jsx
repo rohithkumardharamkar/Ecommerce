@@ -22,7 +22,7 @@ const Reg = () => {
     {
     try
     {
-      axios.post("http://localhost:5000/user/register",data).then((res)=>
+      axios.post("https://ecommerce-yrgm.vercel.app/user/register",data).then((res)=>
       {
         if(res.data.msg=="Your Account has been created")
         {

@@ -7,6 +7,6 @@ let prodsch=new mongoose.Schema({
     "descp":{type:String,required:true},
     "productimg":{type:String,required:true},
     
-},{timestamps:true})
-let prodmodel=mongoose.model("product",prodsch)
-module.exports=prodmodel
+},{timestamps:true});
+let prodmodel=mongoose.model("product",prodsch);
+module.exports=prodmodel;
